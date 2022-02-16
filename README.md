@@ -12,6 +12,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/dapr/dapr/blob/master/LICENSE)
 [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/dapr/dapr)](https://www.tickgit.com/browse?repo=github.com/dapr/dapr)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/daprdev.svg?style=social&logo=twitter)](https://twitter.com/intent/follow?screen_name=daprdev)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdaixiang0%2Fdapr.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdaixiang0%2Fdapr?ref=badge_shield)
 
 Dapr is a portable, serverless, event-driven runtime that makes it easy for developers to build resilient, stateless and stateful microservices that run on the cloud and edge and embraces the diversity of languages and developer frameworks.
 
@@ -134,3 +135,7 @@ See the [Development Guide](https://docs.dapr.io/contributing/) to get started w
 ## Code of Conduct
 
 Please refer to our [Dapr Community Code of Conduct](https://github.com/dapr/community/blob/master/CODE-OF-CONDUCT.md)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdaixiang0%2Fdapr.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdaixiang0%2Fdapr?ref=badge_large)
