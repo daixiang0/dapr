@@ -18,13 +18,14 @@ import (
 
 	"github.com/dapr/dapr/pkg/api/http/endpoints"
 	runtimev1pb "github.com/dapr/dapr/pkg/proto/runtime/v1"
+	"github.com/go-chi/chi/v5"
 )
 
 func (a *api) constructConversationEndpoints() []endpoints.Endpoint {
 	return []endpoints.Endpoint{
 		{
-			Methods: []string{http.MethodGet},
-			Route:   "conversation/{name}/conversate",
+			Methods: []string{http.MethodPost},
+			Route:   "conversation/{name}/converse",
 			Version: apiVersionV1alpha1,
 			Group: &endpoints.EndpointGroup{
 				Name:                 endpoints.EndpointGroupConversation,
@@ -43,7 +44,10 @@ func (a *api) onConverseAlpha1() http.HandlerFunc {
 	return UniversalHTTPHandler(
 		a.universal.ConverseAlpha1,
 		UniversalHTTPHandlerOpts[*runtimev1pb.ConversationAlpha1Request, *runtimev1pb.ConversationAlpha1Response]{
-			ProtoResponseEmitUnpopulated: false,
+			InModifier: func(r *http.Request, in *runtimev1pb.ConversationAlpha1Request) (*runtimev1pb.ConversationAlpha1Request, error) {
+				in.Name = chi.URLParam(r, nameParam)
+				return in, nil
+			},
 		},
 	)
 }

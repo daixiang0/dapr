@@ -1237,6 +1237,16 @@ message DeleteJobResponse {
 }
 // ConversationAlpha1Request is the request object for Conversation.
 message ConversationAlpha1Request {
+
+  // Inputs for the conversation, support multiple input in one time.
+  repeated string inputs = 1;
+
+  // Parameters for all custom fields.
+  map<string, google.protobuf.Any> parameters = 2;
+
+  // The name of Coverstaion component
+  string name = 3;
+
   // Load balancing policy for the endpoint.
   enum LoadBalancingPolicy {
     // Round robin policy.
@@ -1244,22 +1254,15 @@ message ConversationAlpha1Request {
   }
 
   // Endpoints for the model service, co-work with load balanace policy.
-  repeated string endpoints = 1;
-
+  repeated string endpoints = 4;
   // Name of the model.
-  string model = 2;
-
-  // Inputs for the conversation, support multiple input in one time.
-  repeated string inputs = 3;
-
-  // Parameters for all custom fields.
-  repeated google.protobuf.Any parameters = 4;
+  string model = 5;
 
   // Key of API token
-  string key = 5;
+  string key = 6;
 
   // Load balancing policy for endpoints.
-  LoadBalancingPolicy policy = 6;
+  LoadBalancingPolicy policy = 7;
 }
 
 // ConversationAlpha1Result is the result for one input.
@@ -1267,7 +1270,7 @@ message ConversationAlpha1Result {
   // Result for the one conversation input.
   string result = 1;
   // Parameters for all custom fields.
-  repeated google.protobuf.Any parameters = 2;
+  map<string, google.protobuf.Any> parameters = 2;
 }
 
 // ConversationAlpha1Response is the response for Conversation.
